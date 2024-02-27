@@ -2,12 +2,14 @@ from tkinter import *
 from tkmacosx import Button, CircleButton
 from other.params import (BTN_CONFIG, CIRCLE_BTN_CONFIG, TEXT_CONFIG,
                           EQUATIONS_CONFIG, LINE_CONFIG)
+from other.widgets_handler import clear_widgets_func
+from other.menu2 import menu2_func
 import re
 import webbrowser
 
 
-def menu_func(root, equations_image, line_pic,
-              gh_image, w_gh_image):
+def menu1_func(root, equations_image, line_pic,
+               gh_image, w_gh_image):
     """
     Функция главного меню
     """
@@ -53,6 +55,17 @@ def menu_func(root, equations_image, line_pic,
         except ZeroDivisionError:
             ans_lbl.config(text="Деление на ноль. Прямые параллельны и не пересекаются.")
             ans_lbl.place(x=355, y=420)
+
+    def next_btn_func():
+        """
+        Функция для перехода на следующий раздел
+        """
+        clear_widgets_func([title, equations, a1lbl, a1ent, b1lbl, b1ent,
+                           c1lbl, c1ent, a2lbl, a2ent, b2lbl, b2ent,
+                           c2lbl, c2ent, ans_lbl, line_lbl, calc_btn,
+                           next_btn])
+
+        menu2_func(root, line_pic)
 
     def gh_btn_func():
         """
@@ -123,7 +136,12 @@ def menu_func(root, equations_image, line_pic,
     calc_btn.place(x=330, y=550)
     root.bind("<KeyPress-Return>", calc_btn_func)  # по нажатию Enter
 
+    # кнопка перехода на следующий раздел
+    next_btn = Button(text="Дальше", **BTN_CONFIG,
+                      command=lambda: next_btn_func())
+    next_btn.place(x=680, y=555)
+
     # кнопка-ссылка на ГитХаб
     gh_btn = CircleButton(image=gh_image, activeimage=w_gh_image,
                           **CIRCLE_BTN_CONFIG, command=lambda: gh_btn_func())
-    gh_btn.place(x="8", y="555")
+    gh_btn.place(x=8, y=555)

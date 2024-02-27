@@ -1,13 +1,16 @@
 """
-8. Даны числа a1, b1, c1, a2, b2, c2. Напечатать координаты точки пересечения прямых,
+1. Даны числа a1, b1, c1, a2, b2, c2. Напечатать координаты точки пересечения прямых,
 описываемых уравнениями a1x+b1y=c1 и a2x+b2y=c2, либо сообщить, что эти прямые совпадают,
 не пересекаются или вовсе не существуют.
+
+2. Даны натуральное число N и одномерный массив A1, A2, …, AN натуральных чисел.
+Для каждого элемента определить число его вхождений в данный массив.
 
 Тестировать методом комбинаторного покрытия условий (2.5)
 """
 
 from tkinter import *
-from other.menu import menu_func
+from other.menu1 import menu1_func
 
 
 # создание основного окна
@@ -31,8 +34,8 @@ gh_image = PhotoImage(file="other/pics/gh.png")
 w_gh_image = PhotoImage(file="other/pics/w_gh.png")
 
 # функция главного меню
-menu_func(root, equations_image, line_pic,
-          gh_image, w_gh_image)
+menu1_func(root, equations_image, line_pic,
+           gh_image, w_gh_image)
 
 # запуск основного цикла
 root.mainloop()
