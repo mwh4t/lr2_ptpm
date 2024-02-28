@@ -9,7 +9,9 @@ import webbrowser
 
 
 def menu1_func(root, equations_image, line_pic,
-               gh_image, w_gh_image):
+               gh_image, w_gh_image, next_btn_pic,
+               w_next_btn_pic, back_btn_pic,
+               w_back_btn_pic):
     """
     Функция главного меню
     """
@@ -22,8 +24,7 @@ def menu1_func(root, equations_image, line_pic,
         if (not re.match(pattern, a1ent.get()) or not re.match(pattern, b1ent.get())
                 or not re.match(pattern, c1ent.get()) or not re.match(pattern, a2ent.get())
                 or not re.match(pattern, b2ent.get()) or not re.match(pattern, c2ent.get())):
-            ans_lbl.config(text="Некорректный ввод!",
-                           **TEXT_CONFIG)
+            ans_lbl.config(text="Некорректный ввод!")
             ans_lbl.place(x=300, y=420)
             return
 
@@ -65,7 +66,8 @@ def menu1_func(root, equations_image, line_pic,
                            c2lbl, c2ent, ans_lbl, line_lbl, calc_btn,
                            next_btn])
 
-        menu2_func(root, line_pic)
+        menu2_func(root, line_pic, back_btn_pic, w_back_btn_pic, equations_image,
+                   gh_image, w_gh_image, next_btn_pic, w_next_btn_pic)
 
     def gh_btn_func():
         """
@@ -137,9 +139,9 @@ def menu1_func(root, equations_image, line_pic,
     root.bind("<KeyPress-Return>", calc_btn_func)  # по нажатию Enter
 
     # кнопка перехода на следующий раздел
-    next_btn = Button(text="Дальше", **BTN_CONFIG,
-                      command=lambda: next_btn_func())
-    next_btn.place(x=680, y=555)
+    next_btn = CircleButton(image=next_btn_pic, activeimage=w_next_btn_pic,
+                            **CIRCLE_BTN_CONFIG, command=lambda: next_btn_func())
+    next_btn.place(x=760, y=555)
 
     # кнопка-ссылка на ГитХаб
     gh_btn = CircleButton(image=gh_image, activeimage=w_gh_image,

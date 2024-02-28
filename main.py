@@ -29,13 +29,23 @@ equations_image = PhotoImage(file="other/pics/equations.png")
 # изображение с линией
 line_pic = PhotoImage(file="other/pics/line.png")
 
+# изображения с кнопкой "далее"
+next_btn_pic = PhotoImage(file="other/pics/next.png")
+w_next_btn_pic = PhotoImage(file="other/pics/w_next.png")
+
+# изображения с кнопкой "назад"
+back_btn_pic = PhotoImage(file="other/pics/back.png")
+w_back_btn_pic = PhotoImage(file="other/pics/w_back.png")
+
 # изображения с ГитХабом
 gh_image = PhotoImage(file="other/pics/gh.png")
 w_gh_image = PhotoImage(file="other/pics/w_gh.png")
 
 # функция главного меню
 menu1_func(root, equations_image, line_pic,
-           gh_image, w_gh_image)
+           gh_image, w_gh_image, next_btn_pic,
+           w_next_btn_pic, back_btn_pic,
+           w_back_btn_pic)
 
 # запуск основного цикла
 root.mainloop()
