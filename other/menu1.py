@@ -54,8 +54,8 @@ def menu1_func(root, equations_image, line_pic,
                 ans_lbl.config(text=f"{x}, {y}")
                 ans_lbl.place(x=350, y=420)
         except ZeroDivisionError:
-            ans_lbl.config(text="Деление на ноль. Прямые параллельны и не пересекаются.")
-            ans_lbl.place(x=355, y=420)
+            ans_lbl.config(text="Деление на ноль!\nПрямые параллельны и не пересекаются.")
+            ans_lbl.place(x=220, y=420)
 
     def next_btn_func():
         """
