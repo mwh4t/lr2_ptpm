@@ -15,7 +15,7 @@ from other.menu1 import menu1_func
 
 # создание основного окна
 root = Tk()
-root.title("Точки пересечения прямых")
+root.title("Лабораторная работа 2")
 root.geometry("800x600")
 root.geometry("+300+100")
 root.resizable(False, False)
